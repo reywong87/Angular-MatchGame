@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    @for (animal of shuffledAnimals; track $index)
+    {
+      <div class="col-3">
+        <button [disabled]="timeIsOver" type="button" class="btn btn-outline-primary" (click)="ButtonClick(animal, $index)">
+          <h1>{{animal}}</h1>
+        </button>
+      </div>
+    }
+  </div>
+  <div class="row">
+    <h2>Matches found: {{matchesFound}}</h2>
+  </div>
+  <div class="row">
+    <h2>Time: <countdown #cd [config]="config" (event)="handleEvent($event)"></countdown></h2>
+  </div>
+</div>
